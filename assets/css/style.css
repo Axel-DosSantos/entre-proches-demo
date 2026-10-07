@@ -310,6 +310,10 @@ strong { font-weight: 700; }
 .quote figcaption { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; }
 .quote figcaption::before { content: ""; width: 24px; height: 1.5px; background: var(--caramel); }
 
+/* Dernière section collée au pied de page (pas de bande blanche) */
+.section--last { padding-bottom: calc(var(--section-y) + 48px); }
+main:has(> .section--last:last-child) + .site-footer { margin-top: -48px; border-top: 1px solid rgba(246, 244, 241, .18); }
+
 /* ---------- Pied de page ---------- */
 .site-footer {
   position: relative; overflow: hidden;
