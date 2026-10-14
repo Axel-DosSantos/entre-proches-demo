@@ -162,12 +162,13 @@ strong { font-weight: 700; }
 .site-header {
   position: sticky; top: 0; z-index: 50;
   background: var(--neutre); border-bottom: 1px solid var(--bordure);
-  padding: 12px var(--gutter);
+  padding: 12px clamp(20px, 3vw, 64px);
 }
-.site-header__inner { max-width: 1320px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 16px 28px; }
-.site-logo img { height: 64px; width: auto; }
+.site-header__inner { max-width: 1320px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 16px 22px; }
+.site-logo { flex: none; }
+.site-logo img { height: 84px; width: auto; max-width: none; }
 .site-nav { display: flex; align-items: center; gap: 24px; }
-.nav-list { list-style: none; padding: 0; display: flex; align-items: center; gap: 4px 24px; font-size: 16px; font-weight: 600; }
+.nav-list { list-style: none; padding: 0; display: flex; align-items: center; gap: 4px 20px; font-size: 16px; font-weight: 600; }
 .nav-list a { display: inline-block; white-space: nowrap; padding: 10px 0; text-decoration: none; border-bottom: 2px solid transparent; }
 .nav-list a:hover { color: var(--terracotta-fonce); }
 .nav-list a[aria-current="page"] { border-bottom-color: var(--terracotta); }
@@ -190,7 +191,7 @@ strong { font-weight: 700; }
 .nav-toggle[aria-expanded="true"] .nav-toggle__bars span { opacity: 0; }
 .nav-toggle[aria-expanded="true"] .nav-toggle__bars::after { transform: translateY(-6px) rotate(-45deg); }
 
-@media (max-width: 1240px) {
+@media (max-width: 1300px) {
   .nav-toggle { display: inline-flex; }
   .site-nav {
     display: none; position: absolute; left: 0; right: 0; top: 100%;
@@ -293,6 +294,7 @@ strong { font-weight: 700; }
 .reasons li { display: flex; gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--bordure-douce); }
 .reasons li:last-child { border-bottom: 0; }
 .reasons .sprig { width: 36px; height: 36px; flex: none; fill: none; stroke: var(--sauge); stroke-width: 1.3; stroke-linecap: round; }
+.reasons .laurier { width: 60px; height: auto; flex: none; align-self: flex-start; margin-top: 2px; }
 .reasons p { font-size: 17px; color: var(--texte-doux); }
 
 /* Zone */
@@ -341,7 +343,15 @@ main:has(> .section--last:last-child) + .site-footer { margin-top: -48px; border
 .price-summary { background: var(--blanc); border: 1px solid var(--bordure); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 6px; }
 .price-summary a { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--bordure-douce); text-decoration: none; }
 .price-summary a:last-of-type { border-bottom: 0; }
-.price-summary strong { font-size: 22px; }
+.price-summary strong { font-size: 22px; white-space: nowrap; }
+.price-summary__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding-bottom: 14px; margin-bottom: 4px; border-bottom: 1px solid var(--bordure); }
+.price-summary__head span { font-size: 17px; color: var(--texte-doux); }
+.price-summary__head b { font-style: italic; font-weight: 700; font-size: clamp(32px, 3.2vw, 40px); line-height: 1.1; color: var(--terracotta-fonce); }
+@media (min-width: 900px) {
+  .hero .price-summary { margin-left: auto; width: 100%; max-width: 460px; }
+  .hero .hero-visual { margin-left: auto; margin-right: -24px; }
+  .hero .hero-visual__main { left: 6%; }
+}
 .format-card { display: flex; flex-direction: column; gap: 14px; padding: 32px; background: var(--neutre); border-radius: var(--radius); }
 .format-card__count { display: flex; align-items: baseline; gap: 10px; }
 .format-card__count strong { font-style: italic; font-size: 56px; line-height: 1; color: var(--caramel); }
@@ -374,7 +384,7 @@ main:has(> .section--last:last-child) + .site-footer { margin-top: -48px; border
 .signature { display: flex; flex-direction: column; line-height: 1.3; margin-top: 8px; }
 .signature strong { font-style: italic; font-size: 28px; }
 .signature span { font-size: 15px; color: var(--texte-doux); }
-.pull-quote { max-width: 34ch; font-style: italic; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.45; }
+.pull-quote { max-width: 42ch; font-style: italic; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.45; }
 .when { font-size: 14px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--caramel-texte); }
 
 /* ---------- Page Conseils ---------- */
