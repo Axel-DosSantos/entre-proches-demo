@@ -92,7 +92,7 @@
       collation:    { label: "Petite collation (6 pièces)", prix: 16 },
       cocktail:     { label: "Cocktail (12 pièces)", prix: 25 },
       dejeunatoire: { label: "Cocktail déjeunatoire ou dînatoire (18 pièces)", prix: 29 },
-      repas:        { label: "Repas ou buffet", prix: 28 }
+      repas:        { label: "Repas assis ou buffet", prix: 26 }
     },
     // Frais de déplacement. Paris intramuros (75) : +200 € HT.
     // +100 € HT au-delà de 50 min de Brunoy : APPROXIMATION par département,

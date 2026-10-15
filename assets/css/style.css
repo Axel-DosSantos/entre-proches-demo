@@ -343,6 +343,8 @@ main:has(> .section--last:last-child) + .site-footer { margin-top: -48px; border
 .price-summary { background: var(--blanc); border: 1px solid var(--bordure); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 6px; }
 .price-summary a { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--bordure-douce); text-decoration: none; }
 .price-summary a:last-of-type { border-bottom: 0; }
+.price-summary a.price-summary__star { margin: 4px -14px; padding: 14px; border: 0; border-radius: 14px; background: #eef0ea; }
+.price-summary a.price-summary__star span { font-weight: 600; }
 .price-summary strong { font-size: 22px; white-space: nowrap; }
 .price-summary__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding-bottom: 14px; margin-bottom: 4px; border-bottom: 1px solid var(--bordure); }
 .price-summary__head span { font-size: 17px; color: var(--texte-doux); }
