@@ -85,17 +85,17 @@
   if (!sim) return;
 
   var CONFIG = {
-    minimum: 1000,                  // € HT minimum par prestation
-    vaisselleParPersonne: 3,        // € HT
-    verre: 4,                       // € HT par verre de vin ou kir
+    minimum: 1000,                  // € minimum par prestation
+    vaisselleParPersonne: 3,        // €
+    verre: 4,                       // € par verre de vin ou kir
     formules: {
       collation:    { label: "Petite collation (6 pièces)", prix: 16 },
       cocktail:     { label: "Cocktail (12 pièces)", prix: 25 },
       dejeunatoire: { label: "Cocktail déjeunatoire ou dînatoire (18 pièces)", prix: 29 },
       repas:        { label: "Repas assis ou buffet", prix: 26 }
     },
-    // Frais de déplacement. Paris intramuros (75) : +200 € HT.
-    // +100 € HT au-delà de 50 min de Brunoy : APPROXIMATION par département,
+    // Frais de déplacement. Paris intramuros (75) : +200 €.
+    // +100 € au-delà de 50 min de Brunoy : APPROXIMATION par département,
     // à remplacer par la liste de communes validée par Stevann.
     paris: { departements: ["75"], frais: 200, label: "Déplacement Paris intramuros" },
     loin:  { departements: ["89", "45"], codesPostaux: [], frais: 100, label: "Déplacement à plus de 50 min de Brunoy" },
@@ -118,7 +118,7 @@
   var devisForm = document.getElementById("form-devis");
   var lastEstimate = null;
 
-  function eur(v) { return Math.round(v).toLocaleString("fr-FR") + " € HT"; }
+  function eur(v) { return Math.round(v).toLocaleString("fr-FR") + " €"; }
   function int(v) { var n = parseInt(v, 10); return isNaN(n) || n < 0 ? 0 : n; }
 
   function compute() {
@@ -146,7 +146,7 @@
     var lignes = [{ label: f.label + ", " + n + " personne" + (n > 1 ? "s" : ""), value: eur(repas) }];
     if (vaisselle) lignes.push({ label: "Vaisselle", value: "+ " + eur(coutVaisselle) });
     if (vin) lignes.push({ label: "Vin ou kir, " + verres + " verre" + (verres > 1 ? "s" : ""), value: "+ " + eur(coutVin) });
-    if (complement) lignes.push({ label: "Complément au minimum de prestation (1 000 € HT)", value: "+ " + eur(complement) });
+    if (complement) lignes.push({ label: "Complément au minimum de prestation (1 000 €)", value: "+ " + eur(complement) });
     if (deplacement) lignes.push({ label: deplacement.label, value: "+ " + eur(deplacement.frais) });
     if (horsZone) lignes.push({ label: "Déplacement hors zone habituelle", value: "à confirmer" });
 
