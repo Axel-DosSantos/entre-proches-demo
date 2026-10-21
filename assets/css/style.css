@@ -463,3 +463,12 @@ main:has(> .section--last:last-child) + .site-footer { margin-top: -48px; border
 .legal-content h2 { font-style: italic; font-weight: 700; font-size: 28px; margin-top: 40px; margin-bottom: 12px; }
 .legal-content p, .legal-content li { margin-bottom: 10px; }
 .todo { background: #fff4cc; padding: 0 4px; border-radius: 4px; }
+
+/* Crédit photo (@davidindigital) */
+.credit { position: relative; margin: 0; }
+.credit > .photo { display: block; width: 100%; }
+.photo-credit { position: absolute; right: 12px; bottom: 12px; margin: 0; font-size: 12px; line-height: 1; }
+.photo-credit a { display: inline-block; padding: 5px 9px; border-radius: 999px; background: rgba(23, 38, 46, .62); color: #fff; text-decoration: none; }
+.photo-credit a:hover { background: rgba(23, 38, 46, .85); text-decoration: underline; }
+.photo-credit--below { position: static; margin-top: 10px; text-align: center; }
+.photo-credit--below a { background: none; color: var(--texte-doux); padding: 0; }
