@@ -472,3 +472,13 @@ main:has(> .section--last:last-child) + .site-footer { margin-top: -48px; border
 .photo-credit a:hover { background: rgba(23, 38, 46, .85); text-decoration: underline; }
 .photo-credit--below { position: static; margin-top: 10px; text-align: center; }
 .photo-credit--below a { background: none; color: var(--texte-doux); padding: 0; }
+
+/* Back-office de démonstration */
+.cms-bandeau { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 100; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; justify-content: center; padding: 10px 16px; border-radius: 14px; background: var(--bleu-fonce); color: #fff; font-size: 14px; line-height: 1.4; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+.cms-bandeau a, .cms-bandeau button { color: var(--caramel-clair); font: inherit; text-decoration: underline; background: none; border: 0; padding: 0; cursor: pointer; }
+.cms-editing [contenteditable="true"] { outline: 1px dashed rgba(215,108,59,.45); outline-offset: 3px; border-radius: 4px; cursor: text; }
+.cms-editing [contenteditable="true"]:hover { outline: 2px dashed var(--terracotta); background: rgba(215,108,59,.05); }
+.cms-editing [contenteditable="true"]:focus { outline: 2px solid var(--terracotta); background: #fff8f3; }
+.cms-editing img.cms-img { cursor: pointer; outline: 2px dashed transparent; outline-offset: 4px; transition: outline-color .15s; }
+.cms-editing img.cms-img:hover { outline-color: var(--terracotta); }
+.cms-editing .cms-bandeau { display: none; }

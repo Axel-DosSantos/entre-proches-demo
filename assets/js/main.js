@@ -102,6 +102,20 @@
     zone:  ["75", "77", "78", "91", "92", "93", "94", "95", "89", "45"]
   };
 
+  // Prix modifiés depuis le back-office de démonstration (demo-cms.js)
+  var P = window.EP_CMS_PRICES;
+  if (P) {
+    var num = function (v) { var n = parseFloat(v); return isNaN(n) ? null : n; };
+    [["collation", "collation"], ["cocktail", "cocktail"], ["dejeunatoire", "dejeunatoire"], ["repas", "tablee"]].forEach(function (m) {
+      if (num(P[m[1]]) !== null) CONFIG.formules[m[0]].prix = num(P[m[1]]);
+    });
+    if (num(P.vaisselle) !== null) CONFIG.vaisselleParPersonne = num(P.vaisselle);
+    if (num(P.verre) !== null) CONFIG.verre = num(P.verre);
+    if (num(P.minimum) !== null) CONFIG.minimum = num(P.minimum);
+    if (num(P.paris) !== null) CONFIG.paris.frais = num(P.paris);
+    if (num(P.loin) !== null) CONFIG.loin.frais = num(P.loin);
+  }
+
   var $ = function (sel) { return sim.querySelector(sel); };
   var fields = {
     formule: $("#sim-formule"), convives: $("#sim-convives"), date: $("#sim-date"),
@@ -146,7 +160,7 @@
     var lignes = [{ label: f.label + ", " + n + " personne" + (n > 1 ? "s" : ""), value: eur(repas) }];
     if (vaisselle) lignes.push({ label: "Vaisselle", value: "+ " + eur(coutVaisselle) });
     if (vin) lignes.push({ label: "Vin ou kir, " + verres + " verre" + (verres > 1 ? "s" : ""), value: "+ " + eur(coutVin) });
-    if (complement) lignes.push({ label: "Complément au minimum de prestation (1 000 €)", value: "+ " + eur(complement) });
+    if (complement) lignes.push({ label: "Complément au minimum de prestation (" + eur(CONFIG.minimum) + ")", value: "+ " + eur(complement) });
     if (deplacement) lignes.push({ label: deplacement.label, value: "+ " + eur(deplacement.frais) });
     if (horsZone) lignes.push({ label: "Déplacement hors zone habituelle", value: "à confirmer" });
 

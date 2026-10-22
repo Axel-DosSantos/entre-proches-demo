@@ -117,7 +117,7 @@
       <article class="formule formule--sauge">
         <p class="formule__tag">Pour se retrouver autour d’une table</p>
         <h3 class="formule__title">Tablée Entre proches</h3>
-        <p class="formule__price"><span>À partir de</span><strong>26 €</strong><span>par personne</span></p>
+        <p class="formule__price"><span>À partir de</span><strong><span data-price="tablee">26</span> €</strong><span>par personne</span></p>
         <p class="formule__text">Pour vous retrouver autour d’un vrai repas : <strong>repas assis servi à table</strong>, buffet froid ou chaud, brunch ou barbecue, selon votre famille et le moment de la journée.</p>
         <p class="formule__sub">Les boissons sans alcool, l’eau et le café sont compris.</p>
         <img class="formule__deco" src="assets/img/vaisselle.svg" alt="" width="527" height="315" loading="lazy">
@@ -125,14 +125,14 @@
       <article class="formule formule--blue">
         <p class="formule__tag">Pour se retrouver simplement</p>
         <h3 class="formule__title">Cocktail Entre proches</h3>
-        <p class="formule__price"><span>À partir de</span><strong>16 €</strong><span>par personne</span></p>
+        <p class="formule__price"><span>À partir de</span><strong><span data-price="collation">16</span> €</strong><span>par personne</span></p>
         <p class="formule__text">Pour partager un moment ensemble autour de quelques pièces salées et sucrées, sans organiser un véritable repas à table. Selon vos besoins, choisissez entre une petite collation de <strong>6 pièces</strong>, un cocktail de <strong>12 pièces</strong> ou une formule déjeunatoire ou dînatoire de <strong>18 pièces</strong>.</p>
         <p class="formule__sub">Les boissons sans alcool, l’eau et le café sont compris.</p>
         <img class="formule__deco" src="assets/img/assiette.svg" alt="" width="640" height="176" loading="lazy">
       </article>
     </div>
     <div class="row-between">
-      <p class="note measure">Montant minimum de 1 000 € par prestation. Les tarifs peuvent varier selon le nombre de convives et les conditions d’intervention.</p>
+      <p class="note measure">Montant minimum de 1 000 € par prestation. Les tarifs peuvent varier selon le nombre de convives et les conditions d’intervention.</p>
       <a class="btn btn--outline" href="repas-apres-obseques/">Découvrir les formules et tarifs</a>
     </div>
   </div>
@@ -176,7 +176,7 @@
   </div>
 </section>
 
-<section class="section section--white" id="temoignages">
+<section class="section section--white" id="temoignages" data-cms="temoignages">
   <div class="container stack stack--xl">
     <h2 class="h2" style="text-align:center">Des familles nous ont confié ce moment</h2>
     <div class="grid grid--2" style="gap:28px">
@@ -223,10 +223,12 @@
         <li><a href="conseils-et-ressources/">Conseils &amp; ressources</a></li>
         <li><a href="contact/">Contact</a></li>
       </ul></nav>
-      <p class="legal"><span>© <span data-year>2026</span> Entre proches</span><a href="mentions-legales/">Mentions légales</a><a href="politique-de-confidentialite/">Politique de confidentialité</a></p>
+      <p class="legal"><span>© <span data-year>2026</span> Entre proches</span><a href="mentions-legales/">Mentions légales</a><a href="politique-de-confidentialite/">Politique de confidentialité</a><a href="admin/">Back-office (démo)</a></p>
     </div>
   </div>
 </footer>
+<script src="assets/js/cms-defaults.js" defer></script>
+<script src="assets/js/demo-cms.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>

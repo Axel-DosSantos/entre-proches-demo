@@ -108,12 +108,12 @@
 
     <p id="sim-zone-alert" class="alert" role="alert" hidden>Cette ville semble située hors de notre zone d’intervention habituelle. Vous pouvez tout de même nous envoyer votre demande : Stevann vérifiera avec vous si un déplacement est possible.</p>
 
-    <p class="small muted">Vaisselle : + 3 € par personne · Vin ou kir : + 4 € par verre. Une adaptation alimentaire peut avoir une incidence sur le prix ; si c’est le cas, elle sera chiffrée dans le devis. Entre proches intervient principalement en Île-de-France, dans l’Yonne et dans le Loiret, jusqu’à environ 1 h 30 de Brunoy. La possibilité d’intervenir à l’adresse indiquée sera confirmée par Stevann.</p>
+    <p class="small muted">Vaisselle : + <span data-price="vaisselle">3</span> € par personne · Vin ou kir : + <span data-price="verre">4</span> € par verre. Une adaptation alimentaire peut avoir une incidence sur le prix ; si c’est le cas, elle sera chiffrée dans le devis. Entre proches intervient principalement en Île-de-France, dans l’Yonne et dans le Loiret, jusqu’à environ 1 h 30 de Brunoy. La possibilité d’intervenir à l’adresse indiquée sera confirmée par Stevann.</p>
 
     <div class="estimate" aria-live="polite">
       <ul class="estimate__lines" id="sim-lignes"></ul>
       <div class="estimate__total"><p style="font-size:19px">Montant estimé</p><p class="estimate__amount" id="sim-total">—</p></div>
-      <p class="small muted" style="margin-top:14px">Cette estimation tient compte des choix renseignés et du minimum de 1 000 € par prestation. Elle pourra évoluer selon le contenu exact du repas, le nombre de convives, le lieu, les frais de déplacement et les adaptations demandées. Stevann vous communiquera le montant définitif dans un devis avant toute réservation.</p>
+      <p class="small muted" style="margin-top:14px">Cette estimation tient compte des choix renseignés et du minimum de <span data-price="minimum">1 000</span> € par prestation. Elle pourra évoluer selon le contenu exact du repas, le nombre de convives, le lieu, les frais de déplacement et les adaptations demandées. Stevann vous communiquera le montant définitif dans un devis avant toute réservation.</p>
     </div>
 
     <div>
@@ -166,10 +166,12 @@
         <li><a href="../conseils-et-ressources/">Conseils &amp; ressources</a></li>
         <li><a href="../contact/">Contact</a></li>
       </ul></nav>
-      <p class="legal"><span>© <span data-year>2026</span> Entre proches</span><a href="../mentions-legales/">Mentions légales</a><a href="../politique-de-confidentialite/">Politique de confidentialité</a></p>
+      <p class="legal"><span>© <span data-year>2026</span> Entre proches</span><a href="../mentions-legales/">Mentions légales</a><a href="../politique-de-confidentialite/">Politique de confidentialité</a><a href="../admin/">Back-office (démo)</a></p>
     </div>
   </div>
 </footer>
+<script src="../assets/js/cms-defaults.js" defer></script>
+<script src="../assets/js/demo-cms.js" defer></script>
 <script src="../assets/js/main.js" defer></script>
 </body>
 </html>

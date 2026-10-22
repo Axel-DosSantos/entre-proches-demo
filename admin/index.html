@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Back-office (démo) | Entre proches</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+<link rel="preload" href="../assets/fonts/literata-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="adm">
+
+<!-- Écran d'accueil (démo : aucun identifiant demandé) -->
+<div class="adm-login" id="login">
+  <div class="adm-login__card">
+    <img src="../assets/img/logo-entre-proches.webp" alt="Entre proches" width="170" height="92">
+    <h1>Back-office</h1>
+    <p class="adm-badge">Version de démonstration</p>
+    <p>Cet espace montre ce que Stevann (ou la personne qui l’aide) pourra modifier lui-même : <strong>prix, textes, photos, témoignages et articles</strong>.</p>
+    <p class="adm-muted">Dans cette démo, aucun identifiant n’est demandé et les modifications restent enregistrées dans votre navigateur. Rien n’est publié en ligne.</p>
+    <button class="btn btn--primary" type="button" id="entrer">Entrer dans la démo</button>
+    <a class="adm-link" href="../">← Retour au site</a>
+  </div>
+</div>
+
+<div class="adm-app" id="app" hidden>
+  <aside class="adm-side">
+    <a class="adm-side__logo" href="../"><img src="../assets/img/logo-entre-proches-clair.webp" alt="Entre proches" width="150" height="82"></a>
+    <p class="adm-side__label">Back-office · démo</p>
+    <nav class="adm-nav" aria-label="Back-office">
+      <button type="button" data-tab="accueil" aria-current="page"><span aria-hidden="true">⌂</span>Tableau de bord</button>
+      <button type="button" data-tab="prix"><span aria-hidden="true">€</span>Prix &amp; formules</button>
+      <button type="button" data-tab="pages"><span aria-hidden="true">✎</span>Textes &amp; photos</button>
+      <button type="button" data-tab="temoignages"><span aria-hidden="true">❝</span>Témoignages</button>
+      <button type="button" data-tab="articles"><span aria-hidden="true">≡</span>Articles</button>
+    </nav>
+    <div class="adm-side__bottom">
+      <a href="../" target="_blank" rel="noopener">Voir le site ↗</a>
+      <button type="button" id="reset-all">Réinitialiser la démo</button>
+    </div>
+  </aside>
+
+  <main class="adm-main" id="adm-main">
+    <p class="adm-notice"><strong>Démonstration</strong> — les modifications sont enregistrées uniquement dans ce navigateur et visibles sur le site depuis cet ordinateur. Rien n’est publié en ligne.</p>
+
+    <!-- Tableau de bord -->
+    <section data-panel="accueil">
+      <h1 class="adm-title">Bonjour Stevann</h1>
+      <p class="adm-lead">Que souhaitez-vous mettre à jour aujourd’hui ?</p>
+      <div class="adm-cards" id="dash-cards"></div>
+      <div class="adm-box">
+        <h2>Sauvegarder ou transférer les modifications</h2>
+        <p class="adm-muted">Le fichier exporté contient tous les changements (prix, textes, photos, témoignages, articles). Il pourra être réimporté, ou transmis à La Buon’Com pour les mettre en ligne sur le vrai site.</p>
+        <div class="adm-actions">
+          <button class="btn btn--outline btn--sm" type="button" id="export">Exporter (.json)</button>
+          <label class="btn btn--outline btn--sm adm-file">Importer un fichier<input type="file" accept="application/json" id="import" hidden></label>
+        </div>
+        <p class="adm-muted adm-small" id="storage"></p>
+      </div>
+    </section>
+
+    <!-- Prix -->
+    <section data-panel="prix" hidden>
+      <h1 class="adm-title">Prix &amp; formules</h1>
+      <p class="adm-lead">Les prix sont mis à jour partout : accueil, page Formules &amp; tarifs, page Contact et simulateur.</p>
+      <form id="form-prix" class="adm-box">
+        <h2>Tablée Entre proches</h2>
+        <div class="adm-grid" data-group="tablee"></div>
+        <h2>Cocktail Entre proches</h2>
+        <div class="adm-grid" data-group="cocktail"></div>
+        <h2>Options et conditions</h2>
+        <div class="adm-grid" data-group="options"></div>
+        <div class="adm-actions">
+          <button class="btn btn--primary" type="submit">Enregistrer les prix</button>
+          <button class="btn btn--outline" type="button" id="prix-defaut">Remettre les prix d’origine</button>
+          <a class="adm-link" href="../repas-apres-obseques/" target="_blank" rel="noopener">Voir la page Formules ↗</a>
+        </div>
+      </form>
+    </section>
+
+    <!-- Textes & photos -->
+    <section data-panel="pages" hidden>
+      <h1 class="adm-title">Textes &amp; photos</h1>
+      <p class="adm-lead">Choisissez une page, puis <strong>cliquez directement sur un texte pour le modifier</strong>, ou <strong>sur une photo pour la remplacer</strong>. L’enregistrement est automatique.</p>
+      <div class="adm-toolbar">
+        <label>Page
+          <select id="page-select">
+            <option value="index.html">Accueil</option>
+            <option value="repas-apres-obseques/index.html">Formules &amp; tarifs</option>
+            <option value="notre-equipe/index.html">Une équipe à vos côtés</option>
+            <option value="conseils-et-ressources/index.html">Conseils &amp; ressources</option>
+            <option value="contact/index.html">Contact</option>
+            <option value="mentions-legales/index.html">Mentions légales</option>
+            <option value="politique-de-confidentialite/index.html">Politique de confidentialité</option>
+          </select>
+        </label>
+        <span class="adm-status" id="edit-status">Prêt</span>
+        <button class="btn btn--outline btn--sm" type="button" id="page-reset">Annuler les modifications de cette page</button>
+      </div>
+      <p class="adm-muted adm-small">Les prix se changent dans « Prix &amp; formules », les témoignages et les articles dans leurs onglets.</p>
+      <div class="adm-frame"><iframe id="page-frame" title="Aperçu modifiable de la page"></iframe></div>
+    </section>
+
+    <!-- Témoignages -->
+    <section data-panel="temoignages" hidden>
+      <h1 class="adm-title">Témoignages</h1>
+      <p class="adm-lead">Affichés sur la page d’accueil, dans la section « Des familles nous ont confié ce moment ».</p>
+      <div id="temo-list" class="adm-list"></div>
+      <form id="form-temo" class="adm-box">
+        <h2 id="temo-form-title">Ajouter un témoignage</h2>
+        <label class="adm-field">Témoignage<textarea name="texte" rows="4" required maxlength="600" placeholder="Ce que la famille a écrit…"></textarea></label>
+        <div class="adm-grid">
+          <label class="adm-field">Prénom (ou initiale)<input name="prenom" required maxlength="40" placeholder="Marie"></label>
+          <label class="adm-field">Ville<input name="ville" maxlength="40" placeholder="Brunoy"></label>
+        </div>
+        <p class="adm-muted adm-small">Uniquement des avis réels, avec l’accord de la personne.</p>
+        <div class="adm-actions">
+          <button class="btn btn--primary" type="submit">Enregistrer</button>
+          <button class="btn btn--outline" type="button" id="temo-cancel" hidden>Annuler</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Articles -->
+    <section data-panel="articles" hidden>
+      <h1 class="adm-title">Articles</h1>
+      <p class="adm-lead">Les articles de la page « Conseils &amp; ressources ». Un article non publié s’affiche « Article à paraître ».</p>
+      <div class="adm-actions" style="margin-bottom:18px"><button class="btn btn--primary btn--sm" type="button" id="art-new">+ Nouvel article</button></div>
+      <div id="art-list" class="adm-list"></div>
+      <form id="form-art" class="adm-box" hidden>
+        <h2 id="art-form-title">Modifier l’article</h2>
+        <div class="adm-grid">
+          <label class="adm-field">Catégorie<input name="tag" maxlength="30" required></label>
+          <label class="adm-field adm-check"><input type="checkbox" name="publie"> Publié</label>
+        </div>
+        <label class="adm-field">Titre<input name="titre" maxlength="140" required></label>
+        <label class="adm-field">Résumé (affiché sur la carte)<textarea name="resume" rows="3" maxlength="400" required></textarea></label>
+        <label class="adm-field">Contenu de l’article<textarea name="contenu" rows="12" placeholder="Séparez les paragraphes par une ligne vide."></textarea></label>
+        <div class="adm-photo">
+          <img id="art-img" alt="" hidden>
+          <label class="btn btn--outline btn--sm adm-file">Changer la photo<input type="file" accept="image/*" id="art-file" hidden></label>
+        </div>
+        <div class="adm-actions">
+          <button class="btn btn--primary" type="submit">Enregistrer l’article</button>
+          <button class="btn btn--outline" type="button" id="art-cancel">Fermer</button>
+          <button class="adm-danger" type="button" id="art-delete">Supprimer l’article</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</div>
+
+<div class="adm-toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="../assets/js/cms-defaults.js"></script>
+<script src="../assets/js/demo-cms.js"></script>
+<script src="../assets/js/admin.js"></script>
+</body>
+</html>
