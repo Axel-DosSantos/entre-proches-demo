@@ -482,3 +482,6 @@ main:has(> .section--last:last-child) + .site-footer { margin-top: -48px; border
 .cms-editing img.cms-img { cursor: pointer; outline: 2px dashed transparent; outline-offset: 4px; transition: outline-color .15s; }
 .cms-editing img.cms-img:hover { outline-color: var(--terracotta); }
 .cms-editing .cms-bandeau { display: none; }
+
+/* Prix modifiables (back-office démo) : le chiffre garde le style du prix qui l'entoure */
+span[data-price] { font-size: inherit !important; color: inherit !important; font-weight: inherit !important; font-style: inherit !important; }
